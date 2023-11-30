@@ -27,5 +27,14 @@ def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
 
 
 # Add a new function here
+@app.route(route="sum")
+def sum(req: func.HttpRequest) -> func.HttpResponse:
+    a = int(req.params.get("a"))
+    b = int(req.params.get("b"))
 
-# TODO
+    if a and b:   
+        return func.HttpResponse(a+b)
+    else:
+        return func.HttpResponse("No parameters provided")
+
+    
