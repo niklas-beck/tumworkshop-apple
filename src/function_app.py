@@ -32,8 +32,9 @@ def sum(req: func.HttpRequest) -> func.HttpResponse:
     a = int(req.params.get("a"))
     b = int(req.params.get("b"))
 
-    if a and b:   
-        return func.HttpResponse(a+b)
+    if a and b:
+        sum = a + b
+        return func.HttpResponse(f"{a} + {b} = {sum}")
     else:
         return func.HttpResponse("No parameters provided")
 
